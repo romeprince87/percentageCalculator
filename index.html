@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>marks calculator
+    </title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        .container{
+            background-color: antiquewhite;
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        label{
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .child{
+            padding: 5px;
+            border-radius:50px ;
+            
+        }
+        #btn{
+            padding: 10px;
+            background-color: aqua;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        #text{
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        h2{
+            margin-bottom: 10px;;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Marks Calculator</h2>
+        <label>Computer science</label>
+        <input type="number" class="child" id="comp"><br>
+        <label>Physics</label>
+        <input type="number" class="child" id="phy"><br>
+        <label>Maths</label>
+        <input type="number" class="child" id="math"><br>
+        <label>Chemistry</label>
+        <input type="number" class="child" id="chm"><br>
+        <label>English</label>
+        <input type="number" class="child" id="eng"><br>
+
+        <p id="text"></p>
+        <input type="button" value="show percentage" id="btn" onclick="calculate()">
+    </div>
+
+    <script>
+        
+        function calculate(){
+            let comp=document.getElementById("comp").value;
+            let phy=document.getElementById("phy").value;
+            let math=document.getElementById("math").value;
+            let chm=document.getElementById("chm").value;
+            let eng=document.getElementById("eng").value;
+            debugger;
+            
+            let totalMarks=Number(comp)+Number(phy)+Number(math)+Number(chm)+Number(eng);
+            
+            let percentage=totalMarks/500*100;
+            
+            if(percentage>=33){
+                document.getElementById("text").innerHTML=`you got ${totalMarks} out of 500 and your percentage is ${percentage}% you are pass`;
+            }else{
+                document.getElementById("text").innerHTML=`you got ${totalMarks} out of 500 and your percentage is ${percentage}% you are fail`;
+            }
+        }
+    </script>
+</body>
+</html>
